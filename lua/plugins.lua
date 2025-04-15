@@ -47,6 +47,17 @@ require("lazy").setup({
         config = true,
         opts = ...
     },
-    "keaising/im-select.nvim"
+    "keaising/im-select.nvim",
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup{}
+        end,
+    }
 })
 

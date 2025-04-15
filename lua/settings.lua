@@ -11,9 +11,9 @@ require 'nvim-treesitter.configs'.setup{
 }
 
 require("mason").setup({
-    pip = {
-        install_args = {"--proxy", "http://127.0.0.1:7893"},
-    },
+    -- pip = {
+    --     install_args = {"--proxy", "http://127.0.0.1:7893"},
+    -- },
 })
 require("mason-lspconfig").setup()
 
@@ -24,7 +24,7 @@ require 'lspconfig'.verible.setup{}
 
 -- config for treesitter
 require("nvim-treesitter.install").command_extra_args = {
-    curl = {"--proxy", "http://127.0.0.1:7893"},
+    -- curl = {"--proxy", "http://127.0.0.1:7893"},
 }
 
 
@@ -108,7 +108,29 @@ require('lspconfig')['verible'].setup {
 vim.opt.termguicolors = true
 require("bufferline").setup({
     options = {
-        mode = "buffers"
+        mode = "buffers",
+        numbers = "buffer_id",
+        indicator = {
+            icon = '▎', 
+            style = 'underline',
+        },
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",
+                text_align = "left",
+                separator = true,
+            },
+            {
+                filetype = "neo-tree",
+                text = "File Explorer",
+                highlight = "Directory",
+                text_align = "left",
+                separator = true,
+            },
+        },
+        separator_style = "slant",
     }
 })
 
