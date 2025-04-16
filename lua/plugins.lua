@@ -58,6 +58,16 @@ require("lazy").setup({
         config = function()
             require("nvim-tree").setup{}
         end,
+    },
+    {
+        "tiagovla/scope.nvim", config = true
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        }
     }
 })
 

@@ -85,7 +85,7 @@ require('lspconfig')['clangd'].setup {
         "clangd",
         "--background-index",
         -- "--clang-tidy",
-        "--header-insertion=never",
+        -- "--header-insertion=never",
         "--pch-storage=memory",
         "--completion-style=detailed",
         "--function-arg-placeholders"
@@ -104,8 +104,13 @@ require('lspconfig')['verible'].setup {
     capabilities = capabilities
 }
 
+-- set colorscheme
+vim.o.background = "dark"
+vim.cmd([[colorscheme gruvbox]])
+
 -- buffer line config
-vim.opt.termguicolors = true
+-- this must be after the the colorscheme
+vim.opt.termguicolors = true 
 require("bufferline").setup({
     options = {
         mode = "buffers",
@@ -148,6 +153,10 @@ require("im_select").setup({
     keep_quiet_on_no_binary = false,
     async_switch_im = true
 })
+
+require("scope").setup({})
+
+require("telescope").load_extension("scope")
 
 -- config for minimap
 vim.g.minimap_width = 10
